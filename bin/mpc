@@ -6,7 +6,7 @@ const { execSync } = require('child_process');
 
 program
     .version('0.1.0')
-    .usage('[options] <file ...>')
+    .usage('[options] <file ...>');
 
 
 program
