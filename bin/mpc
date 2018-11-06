@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+const path = require('path');
+const program = require('commander');
+const { execSync } = require('child_process');
+
+program
+    .version('0.1.0')
+    .usage('[options] <file ...>')
+
+
+program
+    .command('run <dir>')
+    .description('run server')
+    .action(dir => {
+        execSync(`node ${path.resolve(__dirname, '../build/devServer.js')}`)
+    });
+
+program.parse(process.argv)
+

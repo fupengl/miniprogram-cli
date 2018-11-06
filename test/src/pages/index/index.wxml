@@ -1,0 +1,4 @@
+<view class="index">index</view>
+
+<navigator url="../logs/logs">go to logs</navigator>
+<navigator url="../article/articleList/articleList">go to articleList</navigator>
