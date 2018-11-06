@@ -1,5 +1,5 @@
 {
-  "name": "miniprogram-cli",
+  "name": "@miniprogram/miniprogram-cli",
   "version": "0.0.1",
   "description": "minprogram cli",
   "main": "lib/index.js",
