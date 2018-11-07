@@ -66,8 +66,9 @@ function resolveApp() {
 const appEntry = { app: resolveApp() };
 
 const entry = Object.assign({}, appEntry, getAppEntry());
+
 module.exports = {
-	entry: entry,
+	entry,
 	output: {
 		filename: '[name].js',
 		path: utils.resolve('dist'),
