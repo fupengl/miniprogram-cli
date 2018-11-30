@@ -1,7 +1,7 @@
 {
-  "name": "@miniprogram.org/miniprogram-cli",
-  "version": "0.0.1",
-  "description": "minprogram cli",
+  "name": "wapp-cli",
+  "version": "0.0.3",
+  "description": "微信小程序cli",
   "main": "bin/index.js",
   "bin":{
     "mpc": "bin/mpc"
@@ -23,6 +23,7 @@
     "webpack",
     "miniprogram",
     "wxapp-cli",
+    "weapp-cli",
     "cli"
   ],
   "author": "fupengl",
@@ -52,9 +53,11 @@
     "typescript": "^3.2.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "^1.1.2",
+    "tslint-loader": "^3.5.4",
     "webpack": "^4.25.1",
     "webpack-dev-middleware-hard-disk": "^1.12.1",
-    "webpack-merge": "^4.1.4"
+    "webpack-merge": "^4.1.4",
+    "tslint-config-prettier": "^1.17.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
@@ -86,8 +89,6 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.17.0",
-    "tslint-loader": "^3.5.4"
+    "tslint": "^5.11.0"
   }
 }
