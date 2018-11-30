@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-	entry: 'test/src/app.ts',
+	entry: 'src/app.ts',
 	alias: {
 		'style': resolve('src/styles/index.scss')
 	},
@@ -16,5 +16,5 @@ module.exports = {
 };
 
 function resolve(dir) {
-	return path.join(__dirname, '../', dir);
+	return path.join(__dirname, dir);
 };

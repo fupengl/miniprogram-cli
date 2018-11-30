@@ -1,4 +1,5 @@
-const config = require('../config');
+
+const config = require(`${process.cwd()}/config`);
 
 if (!process.env.NODE_ENV) {
 	process.env.ENV = JSON.parse(config.dev.env.ENV);
@@ -13,5 +14,10 @@ console.log(chalk.green('> Starting dev compiler...'));
 
 require('webpack-dev-middleware-hard-disk')(compiler, {
 	publicPath: webpackConfig.output.publicPath,
-	quiet: true
+	quiet: true,
+	watchOptions: {
+		ignored: /dist|manifest/,
+		aggregateTimeout: 300,
+		poll: true
+	},
 });

@@ -1,108 +1,29 @@
-const path = require('path');
-const fs = require('fs');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
-const WxAppWebpackPlugin = require('./minProgramPlugin');
-const WxappNpmPlugin = require('bx-wxapp-npm-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const MiniProgramWebpackPlugin = require('miniprogram-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
 const utils = require('./utils');
-const config = require('../config');
 
-function entryFileType(point) {
-	return ['.js', '.ts', '.scss', '.less', 'wxss'].map(v => point + v);
-}
+const config = require(`${process.cwd()}/config`);
 
-function getAppEntry() {
-	const info = path.parse(config.entry);
-	const entryFile = [];
-	const { pages = [],
-		subpackages = [] } = require(`${utils.resolve(info.dir)}/app.json`);
-	entryFile.push(...pages.map(page => path.resolve(utils.resolve(info.dir), page)));
-	subpackages.forEach(sp => {
-		if (sp.pages.length) {
-			sp.pages.forEach(page => {
-				entryFile.push(path.resolve(
-					utils.resolve(info.dir),
-					path.join(sp.root, page)));
-			});
-		}
-	});
-	entryFile.forEach(page => {
-		const jsonFile = `${page}.json`;
-		if (fs.existsSync(jsonFile)) {
-			const { usingComponents = {} } = require(jsonFile);
-			Object.values(usingComponents).forEach(component => {
-				entryFile.push(component[0] === '/' ?
-					path.join(utils.resolve(info.dir), component) :
-					path.resolve(page, component));
-			});
-		}
-	});
-	let files = [];
-	entryFile.forEach(page => {
-		files.push(...entryFileType(page));
-	});
-	return files.filter(file => {
-		if (fs.existsSync(file)) return file;
-	}).reduce((res, file) => {
-		const fileInfo = path.parse(file);
-		const key = '/' + fileInfo.dir.slice(utils.resolve(info.dir).length + 1) + '/' + fileInfo.name;
-		const points = res[key] || [];
-		points.push(path.resolve(file));
-		res[key] = points;
-		return res;
-	}, {});
-}
-
-function resolveApp() {
-	const app = utils.resolve(config.entry);
-	return entryFileType(app.slice(0, app.lastIndexOf('.'))).filter(file => {
-		if (fs.existsSync(file)) return file;
-	});
-}
-
-const appEntry = { app: resolveApp() };
-
-const entry = Object.assign({}, appEntry, getAppEntry());
+const srcDir = utils.resolve(path.parse(config.entry).dir);
 
 module.exports = {
-	entry,
+	entry: {
+		app: utils.resolve(config.entry)
+	},
 	output: {
 		filename: '[name].js',
-		path: utils.resolve('dist'),
-		globalObject: 'global',
+		path: utils.resolve('dist')
 	},
 	//must not be eval
 	devtool: 'none',
-	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				default: false,
-				//node_modules
-				vendor: {
-					chunks: 'all',
-					test: /[\\/]node_modules[\\/]/,
-					name: 'vendors',
-					minChunks: 2
-				},
-				//其他公用代码
-				common: {
-					chunks: 'all',
-					test: /[\\/]src[\\/]/,
-					minChunks: 2,
-					name: 'commons',
-					minSize: 0
-				}
-			}
-		},
-		runtimeChunk: 'single'
-	},
 	resolve: {
-		extensions: ['.js', '.json', '.ts'],
+		extensions: ['.js', '.ts'],
+		modules: [srcDir, 'node_modules'],
 		alias: Object.assign({}, config.alias, {
-			'@': utils.resolve('src'),
+			'@': srcDir,
 		}),
 		symlinks: false
 	},
@@ -113,7 +34,10 @@ module.exports = {
 				exclude: /node_modules/,
 				use: [
 					{
-						loader: 'babel-loader'
+						loader: 'babel-loader',
+						options: {
+							cacheDirectory: true
+						}
 					},
 					{
 						loader: 'eslint-loader'
@@ -136,17 +60,26 @@ module.exports = {
 				test: /\.(sa|sc|c|le)ss$/,
 				exclude: /node_modules/,
 				use: [
-					MiniCssExtractPlugin.loader,
 					{
-						loader: 'css-loader'
+						loader: 'file-loader',
+						options: {
+							useRelativePath: true,
+							name: `[name].wxss`,
+							context: srcDir,
+						},
 					},
 					{
 						loader: 'postcss-loader'
 					},
 					{
 						loader: 'sass-loader'
-					},
+					}
 				],
+			},
+			{
+				test: /\.(wxss|wxs|wxml|json)\??.*$/,
+				type: 'javascript/auto',
+				loader: 'url-loader'
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|svg|png|gif|jpeg|jpg)\??.*$/,
@@ -160,24 +93,17 @@ module.exports = {
 	},
 
 	plugins: [
-		new CleanWebpackPlugin([utils.resolve('./dist')], {
-			root: utils.resolve('./')
-		}),
 		new CopyWebpackPlugin(
 			[{
 				from: './',
 				to: './'
 			}], {
-				ignore: ['*.js', '*.css', '*.ts', '*.scss', '*.less', '*.sass', '*.wxss'],
-				context: utils.resolve('src'),
+				ignore: ['*.js', '*.css', '*.ts', '*.scss', '*.less', '*.sass', '*.wxss', '*.wxml', '*.json'],
+				context: srcDir,
 			}
 		),
-		new StylelintWebpackPlugin(),
-		new WxAppWebpackPlugin(),
-		new MiniCssExtractPlugin({
-			filename: '[name].wxss'
-		}),
-		new LodashModuleReplacementPlugin(),
-		new WxappNpmPlugin()
+		new MiniProgramWebpackPlugin(),
+		new webpack.optimize.ModuleConcatenationPlugin(),
+		new StylelintWebpackPlugin()
 	]
 };
