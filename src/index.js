@@ -25,12 +25,17 @@ program
 		try {
 			webpack(require('../build/webpack.pro'), (err, stats) => {
 				if (err) {
-					process.stdout.write(chalk.red(err.details || err));
+					process.stdout.write(chalk.red(err));
+					process.exit(1);
+				}
+				if (stats.hasErrors() || stats.hasWarnings()) {
+					process.stdout.write(chalk.red(stats.toString() + '\n'));
+					process.exit(1);
 				}
 				process.stdout.write(chalk.green(stats.toString() + '\n'));
 			});
 		} catch (err) {
-			process.stdout.write(chalk.red(err));
+			process.stdout.write(chalk.red(err + '\n'));
 			process.exit(1);
 		}
 	});

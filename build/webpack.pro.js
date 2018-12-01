@@ -18,11 +18,14 @@ module.exports = merge(common,
 				}),
 				new OptimizeCSSAssetsPlugin({
 					assetNameRegExp: /\.wxss\.*(?!.*map)/g,
-					cssProcessorOptions: {
-						discardComments: { removeAll: true },
-						safe: true,
-						autoprefixer: true
+					cssProcessor: require('cssnano'),
+					cssProcessorPluginOptions: {
+						preset: ['default', {
+							discardComments: { removeAll: true },
+							calc: false
+						}]
 					},
+					canPrint: true
 				})
 			]
 		},

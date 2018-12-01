@@ -57,7 +57,7 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(sa|sc|c|le)ss$/,
+				test: /\.(sa|sc|c)ss$/,
 				exclude: /node_modules/,
 				use: [
 					{
@@ -91,7 +91,11 @@ module.exports = {
 			}
 		]
 	},
-
+	stats: {
+		colors: true,
+		hash: true,
+		cached: true
+	},
 	plugins: [
 		new CopyWebpackPlugin(
 			[{

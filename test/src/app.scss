@@ -1,1 +1,6 @@
 @import "./styles/core/core";
+
+.app {
+	margin: 20rpx;
+	height: calc(100vh - 20rpx);
+}
