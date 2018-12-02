@@ -85,8 +85,7 @@ module.exports = {
 				test: /\.(woff|woff2|eot|ttf|svg|png|gif|jpeg|jpg)\??.*$/,
 				loader: 'url-loader',
 				query: {
-					limit: 50000,
-					name: utils.assetsPath('image/[name].[ext]')
+					limit: 50000
 				}
 			}
 		]
@@ -98,10 +97,8 @@ module.exports = {
 	},
 	plugins: [
 		new CopyWebpackPlugin(
-			[{
-				from: './',
-				to: './'
-			}], {
+			[{ from: './', to: './' }],
+			{
 				ignore: ['*.js', '*.css', '*.ts', '*.scss', '*.less', '*.sass', '*.wxss', '*.wxml', '*.json'],
 				context: srcDir,
 			}
