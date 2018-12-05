@@ -1,6 +1,6 @@
 {
   "name": "wapp-cli",
-  "version": "0.0.61",
+  "version": "0.0.62",
   "description": "微信小程序cli",
   "main": "bin/index.js",
   "bin": {
@@ -47,7 +47,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "file-loader": "^2.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
-    "miniprogram-webpack-plugin": "^0.1.11",
+    "miniprogram-webpack-plugin": "^0.1.12",
     "node-sass": "^4.10.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-load-plugins": "^2.3.0",
