@@ -19,8 +19,6 @@ const parseAlias = () => {
 	return alias;
 };
 
-console.log(process.env.CONF);
-
 module.exports = {
 	entry: {
 		app: utils.resolve(config.entry)
