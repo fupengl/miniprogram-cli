@@ -7,8 +7,8 @@
     "mpc": "bin/mpc"
   },
   "scripts": {
-    "test:serve": "cd test && ENV=development ../bin/mpc serve",
-    "test:build": "cd test && ENV=development ../bin/mpc build",
+    "test:serve": "cd test && ENV=development CONF=dev ../bin/mpc serve",
+    "test:build": "cd test && ENV=development CONF=build ../bin/mpc build",
     "prebuild": "rimraf ./lib && mkdirp ./lib",
     "build:watch": "babel src -o lib/index.js -w",
     "build": "npx babel src --out-dir lib",

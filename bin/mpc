@@ -5,5 +5,3 @@ if (process.env.ENV === 'development') {
 } else {
 	require('../lib/index');
 }
-
-

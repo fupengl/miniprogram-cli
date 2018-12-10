@@ -9,6 +9,18 @@ const config = require(`${process.cwd()}/config`);
 
 const srcDir = utils.resolve(path.parse(config.entry).dir);
 
+const parseAlias = () => {
+	const alias = {
+		'@': srcDir,
+	};
+	for (const k in config.alias) {
+		alias[k] = utils.resolve(config.alias[k]);
+	}
+	return alias;
+};
+
+console.log(process.env.CONF);
+
 module.exports = {
 	entry: {
 		app: utils.resolve(config.entry)
@@ -22,9 +34,7 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.ts'],
 		modules: [srcDir, 'node_modules'],
-		alias: Object.assign({}, config.alias, {
-			'@': srcDir,
-		}),
+		alias: parseAlias(),
 		symlinks: false
 	},
 	module: {

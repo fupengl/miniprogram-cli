@@ -10,7 +10,7 @@ module.exports = merge(common,
 		devtool: 'inline-source-map',
 		plugins: [
 			new webpack.DefinePlugin({
-				'process.env': config.dev.env
+				'process.env': config[process.env.CONF || 'dev'].env
 			}),
 			new webpack.NoEmitOnErrorsPlugin(),
 			new FriendlyErrorsPlugin()

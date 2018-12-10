@@ -31,7 +31,7 @@ module.exports = merge(common,
 		},
 		plugins: [
 			new webpack.DefinePlugin({
-				'process.env': config.build.env
+				'process.env': config[process.env.CONF || 'build'].env
 			})
 		]
 	}

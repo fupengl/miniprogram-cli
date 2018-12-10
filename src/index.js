@@ -24,18 +24,25 @@ program
 	.action(() => {
 		try {
 			webpack(require('../build/webpack.pro'), (err, stats) => {
-				if (err) {
-					process.stdout.write(chalk.red(err));
+				if (err) throw err;
+				process.stdout.write(
+					stats.toString({
+						colors: true,
+						modules: false,
+						children: false,
+						chunks: false,
+						chunkModules: false
+					}) + '\n\n'
+				);
+
+				if (stats.hasErrors()) {
+					console.log(chalk.red('  Build failed with errors.\n'));
 					process.exit(1);
 				}
-				if (stats.hasErrors() || stats.hasWarnings()) {
-					process.stdout.write(chalk.red(stats.toString() + '\n'));
-					process.exit(1);
-				}
-				process.stdout.write(chalk.green(stats.toString() + '\n'));
+				console.log(chalk.cyan('  Build complete.\n'));
 			});
 		} catch (err) {
-			process.stdout.write(chalk.red(err + '\n'));
+			process.stdout.write(chalk.yellow(err + '\n'));
 			process.exit(1);
 		}
 	});
