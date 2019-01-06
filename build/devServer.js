@@ -16,7 +16,7 @@ require('webpack-dev-middleware-hard-disk')(compiler, {
 	quiet: true,
 	watchOptions: {
 		ignored: /dist|manifest/,
-		aggregateTimeout: 300,
+		aggregateTimeout: 500,
 		poll: true
 	},
 });

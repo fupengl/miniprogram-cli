@@ -4233,10 +4233,10 @@ minipass@^2.2.1, minipass@^2.3.4:
     safe-buffer "^5.1.2"
     yallist "^3.0.0"
 
-miniprogram-webpack-plugin@^0.1.11:
-  version "0.1.11"
-  resolved "http://registry.npm.taobao.org/miniprogram-webpack-plugin/download/miniprogram-webpack-plugin-0.1.11.tgz#20547ff46240064edd6a83c8811af50d632c63c5"
-  integrity sha1-IFR/9GJABk7daoPIgRr1DWMsY8U=
+miniprogram-webpack-plugin@^0.1.13:
+  version "0.1.13"
+  resolved "http://registry.npm.taobao.org/miniprogram-webpack-plugin/download/miniprogram-webpack-plugin-0.1.13.tgz#0435b9610727884dc43e1ff8569ef61a3da081bb"
+  integrity sha1-BDW5YQcniE3EPh/4Vp72Gj2ggbs=
   dependencies:
     "@babel/runtime" "^7.1.5"
     fs-extra "^7.0.1"
