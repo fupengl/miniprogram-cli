@@ -1,6 +1,6 @@
 {
   "name": "wapp-cli",
-  "version": "0.0.65",
+  "version": "0.0.66",
   "description": "微信小程序cli",
   "main": "bin/index.js",
   "bin": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test:serve": "cd test && ENV=development CONF=dev ../bin/mpc serve",
-    "test:build": "cd test && ENV=development CONF=build ../bin/mpc build",
+    "test:build": "cd test && ENV=development CONF=build GENERATE_SOURCEMAP=false ../bin/mpc build",
     "prebuild": "rimraf ./lib && mkdirp ./lib",
     "build:watch": "babel src -o lib/index.js -w",
     "build": "npx babel src --out-dir lib",

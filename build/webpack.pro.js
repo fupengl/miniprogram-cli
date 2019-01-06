@@ -8,7 +8,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = merge(common,
 	{
 		mode: 'production',
-		devtool: 'source-map',
+		devtool: process.env.GENERATE_SOURCEMAP !== 'false' ? 'source-map' : 'none',
 		optimization: {
 			minimizer: [
 				new UglifyJsPlugin({
