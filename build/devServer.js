@@ -10,7 +10,7 @@ const webpackConfig = require('./webpack.dev');
 const compiler = webpack(webpackConfig);
 const chalk = require('chalk');
 
-console.log(chalk.green('> Starting dev compiler...'));
+console.log(chalk.cyan('Starting the development server...\n'));
 
 require('webpack-dev-middleware-hard-disk')(compiler, {
 	quiet: true,
@@ -18,5 +18,8 @@ require('webpack-dev-middleware-hard-disk')(compiler, {
 		ignored: /dist|manifest/,
 		aggregateTimeout: 500,
 		poll: true
+	},
+	stats: {
+		colors: true
 	},
 });

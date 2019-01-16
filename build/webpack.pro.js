@@ -9,6 +9,9 @@ module.exports = merge(common,
 	{
 		mode: 'production',
 		devtool: process.env.GENERATE_SOURCEMAP !== 'false' ? 'source-map' : 'none',
+		performance: {
+			hints: 'warning'
+		},
 		optimization: {
 			minimizer: [
 				new UglifyJsPlugin({

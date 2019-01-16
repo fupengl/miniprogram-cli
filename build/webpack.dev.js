@@ -7,7 +7,8 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 module.exports = merge(common,
 	{
 		mode: 'development',
-		devtool: 'cheap-module-inline-source-map',
+		cache: true,
+		devtool: 'cheap-module-source-map',
 		plugins: [
 			new webpack.DefinePlugin({
 				'process.env': config[process.env.CONF || 'dev'].env
