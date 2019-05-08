@@ -1,6 +1,6 @@
 {
   "name": "wapp-cli",
-  "version": "0.0.73",
+  "version": "0.0.74",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -1945,9 +1945,9 @@
       "integrity": "sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw="
     },
     "ccount": {
-      "version": "1.0.3",
-      "resolved": "https://registry.npmjs.org/ccount/-/ccount-1.0.3.tgz",
-      "integrity": "sha512-Jt9tIBkRc9POUof7QA/VwWd+58fKkEEfI+/t1/eOlxKM7ZhrczNzMFefge7Ai+39y1pR/pP6cI19guHy3FSLmw=="
+      "version": "1.0.4",
+      "resolved": "https://registry.npmjs.org/ccount/-/ccount-1.0.4.tgz",
+      "integrity": "sha512-fpZ81yYfzentuieinmGnphk0pLkOTMm6MZdVqwd77ROvhko6iujLNGrHH5E7utq3ygWklwfmwuG+A7P+NpqT6w=="
     },
     "chalk": {
       "version": "2.4.2",
@@ -1960,9 +1960,9 @@
       }
     },
     "character-entities": {
-      "version": "1.2.2",
-      "resolved": "https://registry.npmjs.org/character-entities/-/character-entities-1.2.2.tgz",
-      "integrity": "sha512-sMoHX6/nBiy3KKfC78dnEalnpn0Az0oSNvqUWYTtYrhRI5iUIYsROU48G+E+kMFQzqXaJ8kHJZ85n7y6/PHgwQ=="
+      "version": "1.2.3",
+      "resolved": "https://registry.npmjs.org/character-entities/-/character-entities-1.2.3.tgz",
+      "integrity": "sha512-yB4oYSAa9yLcGyTbB4ItFwHw43QHdH129IJ5R+WvxOkWlyFnR5FAaBNnUq4mcxsTVZGh28bHoeTHMKXH1wZf3w=="
     },
     "character-entities-html4": {
       "version": "1.1.3",
@@ -1970,14 +1970,14 @@
       "integrity": "sha512-SwnyZ7jQBCRHELk9zf2CN5AnGEc2nA+uKMZLHvcqhpPprjkYhiLn0DywMHgN5ttFZuITMATbh68M6VIVKwJbcg=="
     },
     "character-entities-legacy": {
-      "version": "1.1.2",
-      "resolved": "https://registry.npmjs.org/character-entities-legacy/-/character-entities-legacy-1.1.2.tgz",
-      "integrity": "sha512-9NB2VbXtXYWdXzqrvAHykE/f0QJxzaKIpZ5QzNZrrgQ7Iyxr2vnfS8fCBNVW9nUEZE0lo57nxKRqnzY/dKrwlA=="
+      "version": "1.1.3",
+      "resolved": "https://registry.npmjs.org/character-entities-legacy/-/character-entities-legacy-1.1.3.tgz",
+      "integrity": "sha512-YAxUpPoPwxYFsslbdKkhrGnXAtXoHNgYjlBM3WMXkWGTl5RsY3QmOyhwAgL8Nxm9l5LBThXGawxKPn68y6/fww=="
     },
     "character-reference-invalid": {
-      "version": "1.1.2",
-      "resolved": "https://registry.npmjs.org/character-reference-invalid/-/character-reference-invalid-1.1.2.tgz",
-      "integrity": "sha512-7I/xceXfKyUJmSAn/jw8ve/9DyOP7XxufNYLI9Px7CmsKgEUaZLUTax6nZxGQtaoiZCjpu6cHPj20xC/vqRReQ=="
+      "version": "1.1.3",
+      "resolved": "https://registry.npmjs.org/character-reference-invalid/-/character-reference-invalid-1.1.3.tgz",
+      "integrity": "sha512-VOq6PRzQBam/8Jm6XBGk2fNEnHXAdGd6go0rtd4weAGECBamHDwwCQSOT12TACIYUZegUXnV6xBXqUssijtxIg=="
     },
     "chardet": {
       "version": "0.7.0",
@@ -2839,9 +2839,9 @@
       }
     },
     "electron-to-chromium": {
-      "version": "1.3.132",
-      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.132.tgz",
-      "integrity": "sha512-lDt2+2BAJ8w5NrbC2kTMrLMqW4ttC1re2Z1sayHOy9mW6Pzk1fLCbnnx5L4BzNegFPxbBPwnp0/vQ+J2ybJaAg=="
+      "version": "1.3.133",
+      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.133.tgz",
+      "integrity": "sha512-lyoC8aoqbbDqsprb6aPdt9n3DpOZZzdz/T4IZKsR0/dkZIxnJVUjjcpOSwA66jPRIOyDAamCTAUqweU05kKNSg=="
     },
     "elliptic": {
       "version": "6.4.1",
@@ -5496,9 +5496,9 @@
       }
     },
     "markdown-escapes": {
-      "version": "1.0.2",
-      "resolved": "https://registry.npmjs.org/markdown-escapes/-/markdown-escapes-1.0.2.tgz",
-      "integrity": "sha512-lbRZ2mE3Q9RtLjxZBZ9+IMl68DKIXaVAhwvwn9pmjnPLS0h/6kyBMgNhqi1xFJ/2yv6cSyv0jbiZavZv93JkkA=="
+      "version": "1.0.3",
+      "resolved": "https://registry.npmjs.org/markdown-escapes/-/markdown-escapes-1.0.3.tgz",
+      "integrity": "sha512-XUi5HJhhV5R74k8/0H2oCbCiYf/u4cO/rX8tnGkRvrqhsr5BRNU6Mg0yt/8UIx1iIS8220BNJsDb7XnILhLepw=="
     },
     "markdown-table": {
       "version": "1.1.2",
@@ -5666,10 +5666,12 @@
       }
     },
     "miniprogram-webpack-plugin": {
-      "version": "0.1.20",
-      "resolved": "https://registry.npmjs.org/miniprogram-webpack-plugin/-/miniprogram-webpack-plugin-0.1.20.tgz",
-      "integrity": "sha512-QN8rZfysyjtCN+kaABTzBUDBy6zqm5G45WjLgG3Vikzc65SaOQx/xSS/YOX2E0ak5NRXn+xms3uLf5MGf1VjKg==",
+      "version": "0.1.23",
+      "resolved": "https://registry.npmjs.org/miniprogram-webpack-plugin/-/miniprogram-webpack-plugin-0.1.23.tgz",
+      "integrity": "sha512-IqEoSpwW3hzaF5Js+KORnKhmdjKiZQxvQmTywbqX1XhKUhU6L6bYvrzd5kClKlxsID+5qtzl6jat/mGmTWP5kQ==",
       "requires": {
+        "@babel/register": "^7.0.0",
+        "@babel/runtime": "^7.4.4",
         "copy-webpack-plugin": "^5.0.3",
         "fs-extra": "^7.0.1",
         "globby": "^8.0.1",
