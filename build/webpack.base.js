@@ -27,7 +27,7 @@ module.exports = {
 		filename: '[name].js',
 		path: utils.resolve('dist')
 	},
-	//must not be eval
+	// must not be eval
 	devtool: 'none',
 	resolve: {
 		extensions: ['.js', '.ts'],
