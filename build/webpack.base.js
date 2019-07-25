@@ -9,6 +9,8 @@ const config = require(`${process.cwd()}/config`);
 
 const srcDir = utils.resolve(path.parse(config.entry).dir);
 
+const curTarget = ['wx', 'tt'].includes(config.target) ? config.target : 'wx';
+
 const parseAlias = () => {
 	const alias = {
 		'@': srcDir,
@@ -72,7 +74,7 @@ module.exports = {
 						loader: 'file-loader',
 						options: {
 							useRelativePath: true,
-							name: `[name].wxss`,
+							name: `[name].${utils.Target[curTarget].css}`,
 							context: srcDir,
 						},
 					},
@@ -85,7 +87,7 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(wxss|wxs|wxml|json)\??.*$/,
+				test: /\.(ttss|wxss|wxs|ttml|wxml|json)\??.*$/,
 				type: 'javascript/auto',
 				loader: 'url-loader'
 			},
@@ -107,7 +109,7 @@ module.exports = {
 		new CopyWebpackPlugin(
 			[{ from: './', to: './' }],
 			{
-				ignore: ['*.js', '*.css', '*.ts', '*.scss', '*.less', '*.sass', '*.wxss', '*.wxml', '*.json'],
+				ignore: ['*.js', '*.css', '*.ts', '*.scss', '*.less', '*.sass', '*.wxss', '*.ttss', '*.wxml', '*.ttml', '*.json'],
 				context: srcDir,
 			}
 		),
