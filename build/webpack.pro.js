@@ -20,7 +20,7 @@ module.exports = merge(common,
 					sourceMap: true // set to true if you want JS source maps
 				}),
 				new OptimizeCSSAssetsPlugin({
-					assetNameRegExp: /\.wxss\.*(?!.*map)/g,
+					assetNameRegExp: /\.(ttss|wxss)\.*(?!.*map)/g,
 					cssProcessor: require('cssnano'),
 					cssProcessorPluginOptions: {
 						preset: ['default', {
