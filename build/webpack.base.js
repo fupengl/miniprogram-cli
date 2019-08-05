@@ -107,11 +107,17 @@ module.exports = {
 	},
 	plugins: [
 		new CopyWebpackPlugin(
-			[{ from: './', to: './' }],
+			[
+				{ 
+					from: './',
+					to: './',
+					ignore: ['*.js', '*.css', '*.ts', '*.scss', '*.less', '*.sass', '*.wxss', '*.ttss', '*.wxml', '*.ttml', '*.json'],
+				},
+				[...(config.copy || [])]
+			],
 			{
-				ignore: ['*.js', '*.css', '*.ts', '*.scss', '*.less', '*.sass', '*.wxss', '*.ttss', '*.wxml', '*.ttml', '*.json'],
 				context: srcDir,
-			}
+			},
 		),
 		new MiniProgramWebpackPlugin(),
 		new webpack.optimize.ModuleConcatenationPlugin(),

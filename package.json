@@ -1,6 +1,6 @@
 {
   "name": "wapp-cli",
-  "version": "0.0.77",
+  "version": "0.0.79",
   "description": "微信小程序cli",
   "main": "bin/index.js",
   "bin": {
