@@ -114,7 +114,7 @@ module.exports = {
 					ignore: ['*.js', '*.css', '*.ts', '*.scss', '*.less', '*.sass', '*.wxss', '*.ttss', '*.wxml', '*.ttml', '*.json'],
 				},
 				[...(config.copy || [])]
-			],
+			].filter(String),
 			{
 				context: srcDir,
 			},
