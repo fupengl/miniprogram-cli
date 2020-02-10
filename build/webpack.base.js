@@ -74,7 +74,7 @@ module.exports = {
 						loader: 'file-loader',
 						options: {
 							useRelativePath: true,
-							name: `[name].${utils.Target[curTarget].css}`,
+							name: `[path][name].${utils.Target[curTarget].css}`,
 							context: srcDir,
 						},
 					},
