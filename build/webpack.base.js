@@ -119,6 +119,12 @@ module.exports = {
 				context: srcDir,
 			},
 		),
+		curTarget === 'tt' ? 
+		new CopyWebpackPlugin(
+			[
+				{ from: utils.resolve(`./src/project.config.json`), to: utils.resolve('dist/project.config.json') }
+			]
+		) : '',
 		new MiniProgramWebpackPlugin(),
 		new webpack.optimize.ModuleConcatenationPlugin(),
 		new StylelintWebpackPlugin()
